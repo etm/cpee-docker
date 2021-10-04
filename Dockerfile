@@ -16,12 +16,17 @@ libicu-dev \
 redis \
 vim \
 curl \
+nginx \
 && rm -rf /var/lib/apt/lists/*
 RUN gem install cpee
 RUN gem install cpee-logging-xes-yaml
 RUN gem install cpee-instantiation
 RUN cd /run;cpee new flow
-RUN cd /run;cpee-instantiation inst
+RUN cd /run;cpee-instantiation start
 RUN cd /run;cpee-logging-xes-yaml new log
+RUN cd /run;cpee cpui cpee-ui
+RUN cd /run/cpee-ui;ln -s ../log/logs
+RUN cd /etc/nginx/sites-enabled/;curl https://github.com/etm/cpee-docker/nginx/localhost.conf
+RUN service nginx start
 
 CMD ["/bin/bash"]
