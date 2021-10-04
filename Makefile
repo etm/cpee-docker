@@ -1,6 +1,9 @@
 IMAGE_NAME = test
 CONTAINER_ENGINE = podman
 
+force-build:
+	@${CONTAINER_ENGINE} build -t $(IMAGE_NAME) --no-cache .
+
 build:
 	@${CONTAINER_ENGINE} build -t $(IMAGE_NAME) .
 

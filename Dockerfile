@@ -27,6 +27,7 @@ RUN cd /run;cpee-logging-xes-yaml new log
 RUN cd /run;cpee cpui cpee-ui
 RUN cd /run/cpee-ui;ln -s ../log/logs
 RUN cd /var/www;ln -s /run/cpee-ui flow
+RUN cd /var/www;ln -s /run/cpee-ui/js_libs js_libs
 RUN cd /var/www/flow;curl https://raw.githubusercontent.com/etm/cpee-docker/main/config.json > config.json
 RUN cd /etc/nginx/sites-available/;curl https://raw.githubusercontent.com/etm/cpee-docker/main/nginx/localhost.conf > default
 # RUN service nginx start
