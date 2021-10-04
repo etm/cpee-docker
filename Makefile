@@ -6,4 +6,4 @@ build:
 
 .PHONY: test
 test:
-	@${CONTAINER_ENGINE} run --rm -it -p 8298:8298 -p 8080:80 $(IMAGE_NAME)
+	@${CONTAINER_ENGINE} run --rm -it -p 8080:80 $(IMAGE_NAME)
