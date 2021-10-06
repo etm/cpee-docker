@@ -1,5 +1,5 @@
 IMAGE_NAME = test
-CONTAINER_ENGINE = podman
+CONTAINER_ENGINE = docker
 
 force-build:
 	@${CONTAINER_ENGINE} build -t $(IMAGE_NAME) --no-cache .
